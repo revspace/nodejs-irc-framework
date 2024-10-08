@@ -115,6 +115,7 @@ module.exports = class Connection extends EventEmitter {
                     connection = tls.connect({
                         socket: connection,
                         servername: sni,
+                        ca: options.ca_certificate,
                         rejectUnauthorized: options.rejectUnauthorized,
                         key: options.client_certificate && options.client_certificate.private_key,
                         cert: options.client_certificate && options.client_certificate.certificate,
@@ -131,6 +132,7 @@ module.exports = class Connection extends EventEmitter {
                     servername: sni,
                     host: ircd_host,
                     port: ircd_port,
+                    ca: options.ca_certificate,
                     rejectUnauthorized: options.rejectUnauthorized,
                     key: options.client_certificate && options.client_certificate.private_key,
                     cert: options.client_certificate && options.client_certificate.certificate,
